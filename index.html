@@ -8,21 +8,22 @@
   </head>
   <body>
     <h1 id="title">Algorithm Analyzer</h1>
-    <table>
+    <table id="main-table">
       <tr id="options">
         <td>
-          <form id="algorithm-selector" onclick="return false">
+          <form id="algorithm-selector-form" onclick="return false">
             
           </form>
         </td>
         <td>
-          <form id="display-parameters" onclick="return false">
-
+          <form id="display-parameter-form" onclick="return false">
+            <input name="numrows" value="12" type="number" placeholder="Rows">
+            <input name="numcols" value="12" type="number" placeholder="Columns">
           </form>
         </td>
       </tr>
       <tr id="algorithm-display-row">
-
+        <td id="algorithm-display-cell" colspan="2"></td>
       </tr>
       <tr id="tools">
         <td><img id="add-wall-tool" src=""></td>
