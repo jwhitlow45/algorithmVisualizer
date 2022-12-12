@@ -36,7 +36,8 @@ function buildDisplay() {
   }
 }
 
-var selected_tool = 0;
+var selected_tool = -1;
+var start_cell = null;
 
 const TOOLS = {
   'set-start-tool' : 0,
@@ -66,10 +67,19 @@ function handleCellClick() {
     handleAddWallTool(cell);
   else if (selected_tool == TOOLS['remove-wall-tool'])
     handleRemoveWallTool(cell);
+  else
+    alert('No tool selected!');
 
 }
 
 function handleSetStartTool(cell) {
+  if (start_cell) {
+    start_cell.classList.remove('start');
+    start_cell.innerText = '';
+  }
+  cell.classList.add('start');
+  cell.innerText = 'start';
+  start_cell = cell;
 }
 
 function handleAddWallTool(cell) {
