@@ -83,9 +83,13 @@ function handleSetStartTool(cell) {
 }
 
 function handleAddWallTool(cell) {
+  cell.classList.add('wall');
+  cell.innerText = 'wall';
 }
 
 function handleRemoveWallTool(cell) {
+  cell.classList.remove('wall');
+  cell.innerText = '';
 }
 
 buildDisplay();
