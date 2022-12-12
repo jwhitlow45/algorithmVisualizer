@@ -1,11 +1,13 @@
 const display_parameter_submit = document.getElementById('display-parameter-submit');
 display_parameter_submit.addEventListener('click',  buildDisplay);
 
+const set_start_tool = document.getElementById('set-start-tool');
+const set_end_tool = document.getElementById('set-end-tool');
 const add_wall_tool = document.getElementById('add-wall-tool');
 const remove_wall_tool = document.getElementById('remove-wall-tool');
-const set_start_tool = document.getElementById('set-start-tool');
 
 set_start_tool.addEventListener('click', function(){ selectTool('set-start-tool') });
+set_end_tool.addEventListener('click', function(){ selectTool('set-end-tool') });
 add_wall_tool.addEventListener('click', function(){ selectTool('add-wall-tool') });
 remove_wall_tool.addEventListener('click', function(){ selectTool('remove-wall-tool') });
 
@@ -38,11 +40,13 @@ function buildDisplay() {
 
 var selected_tool = -1;
 var start_cell = null;
+var end_cell = null;
 
 const TOOLS = {
   'set-start-tool' : 0,
-  'add-wall-tool' : 1,
-  'remove-wall-tool' : 2,
+  'set-end-tool' : 1,
+  'add-wall-tool' : 2,
+  'remove-wall-tool' : 3,
 };
 
 function selectTool(tool_name) {
@@ -63,6 +67,8 @@ function handleCellClick() {
 
   if (selected_tool == TOOLS['set-start-tool'])
     handleSetStartTool(cell);
+  else if (selected_tool == TOOLS['set-end-tool'])
+    handleSetEndTool(cell);
   else if (selected_tool == TOOLS['add-wall-tool'])
     handleAddWallTool(cell);
   else if (selected_tool == TOOLS['remove-wall-tool'])
@@ -75,21 +81,25 @@ function handleCellClick() {
 function handleSetStartTool(cell) {
   if (start_cell) {
     start_cell.classList.remove('start');
-    start_cell.innerText = '';
   }
   cell.classList.add('start');
-  cell.innerText = 'start';
   start_cell = cell;
+}
+
+function handleSetEndTool(cell) {
+  if (end_cell) {
+    end_cell.classList.remove('end');
+  }
+  cell.classList.add('end');
+  end_cell = cell;
 }
 
 function handleAddWallTool(cell) {
   cell.classList.add('wall');
-  cell.innerText = 'wall';
 }
 
 function handleRemoveWallTool(cell) {
   cell.classList.remove('wall');
-  cell.innerText = '';
 }
 
 buildDisplay();

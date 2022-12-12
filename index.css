@@ -40,3 +40,15 @@ html {
 .tool:hover {
   cursor: pointer;
 }
+
+.wall {
+  background-color: rgb(103, 129, 247);
+}
+
+.start {
+  background-color: rgb(83, 182, 56);
+}
+
+.end {
+  background-color: rgb(255, 171, 0);
+}
