@@ -25,6 +25,7 @@ function buildDisplay() {
       cell.id = i + '-' + j;
       cell.style.width = 90 / numcols + 'vh';
       cell.style.height = 70 / numrows + 'vh';
+      cell.addEventListener('click', handleCellClick)
       row.appendChild(cell);
     }
     table.appendChild(row);
@@ -37,12 +38,14 @@ function buildDisplay() {
 
 var selected_tool = 0;
 
+const TOOLS = {
+  'set-start-tool' : 0,
+  'add-wall-tool' : 1,
+  'remove-wall-tool' : 2,
+};
+
 function selectTool(tool_name) {
-  const TOOLS = {
-    'set-start-tool' : 0,
-    'add-wall-tool' : 1,
-    'remove-wall-tool' : 2,
-  };
+
   selected_tool = TOOLS[tool_name];
 
   const tool_elements = document.getElementsByClassName('tool');
@@ -52,6 +55,27 @@ function selectTool(tool_name) {
     else
       tool_elem.style.opacity = 1;
   }
+}
+
+function handleCellClick() {
+  let cell = document.getElementById(this.id);
+
+  if (selected_tool == TOOLS['set-start-tool'])
+    handleSetStartTool(cell);
+  else if (selected_tool == TOOLS['add-wall-tool'])
+    handleAddWallTool(cell);
+  else if (selected_tool == TOOLS['remove-wall-tool'])
+    handleRemoveWallTool(cell);
+
+}
+
+function handleSetStartTool(cell) {
+}
+
+function handleAddWallTool(cell) {
+}
+
+function handleRemoveWallTool(cell) {
 }
 
 buildDisplay();
