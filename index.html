@@ -12,7 +12,12 @@
       <tr id="options">
         <td>
           <form id="algorithm-selector-form" onclick="return false">
-            
+            <label id="algorithm-selector-label" name="algorithm-selector">Algorithm Selector</label>
+            <select name="algorithm-selector">
+              <option value="bfs">Breadth-First Search</option>
+              <option value="dfs">Depth-First Search</option>
+            </select>
+            <button id="run-algorithm-submit">Run Algorithm!</button>
           </form>
         </td>
         <td>

@@ -1,5 +1,5 @@
 const display_parameter_submit = document.getElementById('display-parameter-submit');
-display_parameter_submit.addEventListener('click',  buildDisplay);
+display_parameter_submit.addEventListener('click', buildDisplay);
 
 const set_start_tool = document.getElementById('set-start-tool');
 const set_end_tool = document.getElementById('set-end-tool');

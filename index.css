@@ -52,3 +52,11 @@ html {
 .end {
   background-color: rgb(255, 171, 0);
 }
+
+.visited { 
+  background-color: purple;
+}
+
+.current {
+  background-color: white;
+}
