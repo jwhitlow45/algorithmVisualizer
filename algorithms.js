@@ -8,6 +8,10 @@ const grid_map = {
 
 const ALGORITHM_DELAY_MS = 100;
 
+const VISITED_CELL_OPACITY = 1;
+const VISITED_CELL_COLOR = 'purple';
+const CURRENT_CELL_OPACITY = .25;
+
 function htmlTableToArray(htmlTable) {
   // create grid from html table
   let grid = Array();
@@ -92,14 +96,14 @@ async function bfs(grid) {
     const visited_cell = document.getElementById(id);
     
     if (grid[row][col] == grid_map['empty']) {
-      visited_cell.style.backgroundColor = 'purple';
+      visited_cell.style.backgroundColor = VISITED_CELL_COLOR;
     }
-    visited_cell.style.opacity = .25;
+    visited_cell.style.opacity = CURRENT_CELL_OPACITY;
 
     await new Promise(r => setTimeout(r, ALGORITHM_DELAY_MS));
     // set opacity to 
     if (grid[row][col] == grid_map['empty']) {
-      visited_cell.style.opacity = 1;
+      visited_cell.style.opacity = VISITED_CELL_OPACITY;
     }
 
     if (grid[row][col] == grid_map['end']) {
